@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+
+        /* styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e9ecef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.signin-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.signup-link {
+    margin-top: 20px;
+    color: #666;
+}
+
+.signup-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <div class="signin-container">
+        <h1>Sign In</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            <label for="username">User Name</label>
+            <input type="username" id="username" name="username" required>
+
+            <label for="usertype">User Type</label>
+            <select id="usertype" name="usertype" required>
+                <option value="admin">Admin</option>
+                <option value="viewer">Viewer</option>
+            </select>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="confirmpassword">Confirm Password</label>
+            <input type="confirmpassword" id="confirmpassword" name="confirmpassword" required>
+
+            
+
+            <button type="submit">Sign In</button>
+        </form>
+        <p class="signup-link">Don't have an account? <a href="{% url 'loginPage' %}">Sign Up</a></p>
+    </div>
+</body>
+</html>
